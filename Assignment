@@ -1,6 +1,30 @@
 __author__ = 'jared_000'
 
+
 """ CP1404 Assignment 1 - 2016
     Items for Hire - a console-based item hiring program
     Jared Marcolongo
     21/03/2016 """
+
+
+Menu = "\nMenu:\n(L)ist all items\n(H)ire an item\n(R)eturn an item\n(A)dd new item to stock\n(Q)uit"
+Items = "Rusty Bucket: 40L bucket - quite rusty	= $0\n AeroPress:	Great coffee maker = $5\n Guitar:	JTV-59	$12.95"
+
+
+def main():
+    print("Items for Hire- by Jared Marcolongo")
+    print("3 items loaded from items.csv")
+
+    print(Menu)
+    choice = input("Enter your choice:").lower()
+    while choice != "Q":
+        if choice == "L":
+            print(Items)
+        elif choice == "H":
+            print(Items)
+        item = input("enter the number of an item to hire")
+            print(item)
+
+
+
+
