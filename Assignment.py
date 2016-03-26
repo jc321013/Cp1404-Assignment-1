@@ -16,7 +16,7 @@ print("3 items loaded from items.csv")
 
 print(Menu)
 print(Items)
-choice = input("Enter your choice: ").lower()
+choice = input("Enter your choice: ").upper()
 while choice != "Q":
     if choice == "L":
         print(Items)
@@ -25,12 +25,12 @@ while choice != "Q":
         item = input("enter the number of an item to hire: ")
         print(item, "hired for", cost)
         print(Menu)
-        choice = input("Enter your choice: ").lower()
+        choice = input("Enter your choice: ").upper()
     elif choice == "R":
         return_item = input("enter the number of an item to return: ")
         print(return_item, "returned")
         print(Menu)
-        choice = input("Enter your choice: ").lower()
+        choice = input("Enter your choice: ").upper()
     elif choice == "A":
         item_name = input("Item Name: ")
         print(item_name)
@@ -40,11 +40,11 @@ while choice != "Q":
         print("$", item_price)
         print(item_name, (item_description), item_price, "now available for hire")
         print(Menu)
-        choice = input("Enter your choice: ").lower()
+        choice = input("Enter your choice: ").upper()
     else:
         print("Invalid menu choice.")
         print(Menu)
-        choice = input("Enter your choice: ").lower()
+        choice = input("Enter your choice: ").upper()
 
     print("5 items saved to items.csv\n" "Have a nice day")
 
@@ -60,9 +60,9 @@ def loading_items():
             if hire == "0":
                 print("Rusty Bucket hired for $0.00")
             print(Menu)
-            choice = input("Enter your choice: ").lower()
-            elif choice == "1":
-                
+            choice = input("Enter your choice: ").upper()
+            # elif choice == "1":
+
 
 
 
