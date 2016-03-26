@@ -8,13 +8,14 @@ __JaredMarcolongo__ = 'jc321013'
 # two functions : loading items and hring an item
 
 Menu = "\nMenu:\n(L)ist all items\n(H)ire an item\n(R)eturn an item\n(A)dd new item to stock\n(Q)uit"
-Items = "Rusty Bucket: 40L bucket - quite rusty	= $0\n AeroPress:	Great coffee maker = $5\n Guitar:	JTV-59	$12.95"
+Items = "0.Rusty Bucket: 40L bucket - quite rusty	= $0\n1.AeroPress: Great coffee maker = $5\n2.Guitar:	JTV-59	$12.95"
 
 
 print("Items for Hire- by Jared Marcolongo")
 print("3 items loaded from items.csv")
 
 print(Menu)
+print(Items)
 choice = input("Enter your choice: ").lower()
 while choice != "Q":
     if choice == "L":
@@ -48,14 +49,29 @@ while choice != "Q":
     print("5 items saved to items.csv\n" "Have a nice day")
 
 
+def loading_items():
+
+
+    def hiring_an_item():
+        print("All items on file(* indicates item is currently out\n)", Items)
+        hire = input("Enter the number of an item to hire: ")
+        print(hire)
+        while choice == "H":
+            if hire == "0":
+                print("Rusty Bucket hired for $0.00")
+            print(Menu)
+            choice = input("Enter your choice: ").lower()
+            elif choice == "1":
+                
 
 
 
 
-# def loading_items():
-#
-#
-# def hiring_an_item():
+
+
+
+
+
 
 
 
