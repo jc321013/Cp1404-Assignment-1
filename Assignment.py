@@ -33,14 +33,15 @@ function main()
 
 
 function loading_an_item()
-    
-    append new item to file
+    get item name, description and price to add
+    open items.csv as fileout for writing
+    for each item in items
+        write item to fileout
+        write newline to fileout
+    close fileout
+    add item to csv file
+        display the new item added
 
-open “stats.dat” as fileOut for writing
-for each datum in data
-write datum to fileOut
-write newline to fileOut
-close fileOut
 
 function hiring_an_item()
     display available item
@@ -50,10 +51,7 @@ function hiring_an_item()
         display available items
     if no items available
         display unavailable message
-    display menu
-
-
-    """
+    display menu    """
 
 import csv
 
@@ -66,9 +64,9 @@ def main(menu):
     print("3 items loaded from items.csv")
 
 # reads from csv file and displays lines in file
-items = open("items.csv", "r", encoding='utf-8')
-reader = csv.reader(items.readlines())
-items.close()
+in_file = open("items.csv", "r", encoding='utf-8')
+reader = csv.reader(in_file.readlines())
+in_file.close()
 for line in reader:
     print(line)
 
@@ -86,13 +84,7 @@ for line in reader:
             return_item = input("Number of an item to return: ")
             print(return_item, "returned")
         elif choice == "A":
-            item_name = input("Item Name: ")
-            print(item_name)
-            item_description = input("Description: ")
-            print(item_description)
-            item_price = input("Price per day: ")
-            print("$", item_price)
-            print(item_name, item_description, item_price, "now available for hire")
+            loading_items()
         else:
             print("Invalid menu choice.")
         print(Menu)
@@ -100,34 +92,56 @@ for line in reader:
 
         print("5 items saved to items.csv\n" "Have a nice day")
 
+"""function loading_an_item()
+    get item name, description and price to add
+    open items.csv as fileout for writing
+    for each item in items
+        write item to fileout
+        write newline to fileout
+    close fileout
+    add item to csv file
+        display the new item added"""
 
-# # def loading_items():
-#     #     print("")
-#     #
-#     # def hiring_an_item():
-#     #     print("All items on file(* indicates item is currently out\n)", Items)
-#     #     hiring_choice = input("Enter the number of an item to hire: ")
-#     #     print(hiring_choice, "hired for")
-#     #     while hiring_choice == "H":
-#     #         if hiring_choice == "0":
-#     #             print("Rusty Bucket hired for $0.00")
-#     #             print(Menu)
-#     #         elif hiring_choice == "1":
-#     #             print("AeroPress: Great coffee maker hired for $5")
-#     #
-#     #
-#     #
-#     #         print(Menu)
-#
-# main(Menu)
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+def loading_items():
+    add_item = []
+    item = 'item_name', 'item_description', 'item_price'
+    item_name = input("Item name: ")
+    item_description = input("Description: ")
+    item_price = input("Price per day: ")
+    print(item_name,(item_description), "$", item_price )
+    print(item)
+    for item in add_item:
+        add_item.append(item)
+        out_file = open("items.csv", "w")
+        out_file.write(add_item)
+        out_file.close()
+        
+# append new item to file
+
+    # def hiring_an_item():
+    #     print("All items on file(* indicates item is currently out\n)", Items)
+    #     hiring_choice = input("Enter the number of an item to hire: ")
+    #     print(hiring_choice, "hired for")
+    #     while hiring_choice == "H":
+    #         if hiring_choice == "0":
+    #             print("Rusty Bucket hired for $0.00")
+    #             print(Menu)
+    #         elif hiring_choice == "1":
+    #             print("AeroPress: Great coffee maker hired for $5")
+    #
+    #
+    #
+    #         print(Menu)
+
+main(Menu)
+
+
+
+
+
+
+
+
+
+
+
