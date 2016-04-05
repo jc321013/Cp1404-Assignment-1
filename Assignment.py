@@ -115,7 +115,7 @@ def loading_items():
         out_file = open("items.csv", "w")
         out_file.write(add_item)
         out_file.close()
-        
+
 # append new item to file
 
     # def hiring_an_item():
