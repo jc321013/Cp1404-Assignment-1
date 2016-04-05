@@ -56,41 +56,42 @@ function hiring_an_item()
 import csv
 
 Menu = "\nMenu:\n(L)ist all items\n(H)ire an item\n(R)eturn an item\n(A)dd new item to stock\n(Q)uit"
-Items = '\n(0). Rusty Bucket,40L bucket - quite rusty,0,in\n(1). Golf Cart,Tesla powered 250 turbo,195,out\n(2). Thermomix,TM-31,25.5,out\n(3). AeroPress,Great coffee maker,5,in\n(4). Guitar,JTV-59,12.95,in'
+# Items = '\n(0). Rusty Bucket,40L bucket - quite rusty,0,in\n(1). Golf Cart,Tesla powered 250 turbo,195,out*\n(2). Thermomix,TM-31,25.5,out*\n(3). AeroPress,Great coffee maker,5,in\n(4). Guitar,JTV-59,12.95,in'
 
 
-def main(menu):
+def main():
     print("Items for Hire- by Jared Marcolongo")
     print("3 items loaded from items.csv")
+
 
 # reads from csv file and displays lines in file
 in_file = open("items.csv", "r", encoding='utf-8')
 reader = csv.reader(in_file.readlines())
 in_file.close()
-for line in reader:
-    print(line)
+for row in reader:
+    print(row)
 
-    print(Items)
+# print(Items)
+print(Menu)
+# .upper allows user to input both lower and upper case letters
+choice = input("Choice: ").upper()
+while choice != "Q":
+    if choice == "L":
+        print(row)
+    elif choice == "H":
+        hiring_an_item()
+        choice = input("Item number: ").upper()
+    elif choice == "R":
+        return_item = input("Number of an item to return: ")
+        print(return_item, "returned")
+    elif choice == "A":
+        loading_items()
+    else:
+        print("Invalid menu choice.")
     print(Menu)
-    # .upper allows user to input both lower and upper case letters
-    choice = input("Choice: ").upper()
-    while choice != "Q":
-        if choice == "L":
-            print(line)
-        elif choice == "H":
-            hiring_an_item()
-            choice = input("Item number: ").upper()
-        elif choice == "R":
-            return_item = input("Number of an item to return: ")
-            print(return_item, "returned")
-        elif choice == "A":
-            loading_items()
-        else:
-            print("Invalid menu choice.")
-        print(Menu)
-        choice = input("Enter your choice: ").upper()
+    choice = input("Enter your choice: ").upper()
 
-        print("5 items saved to items.csv\n" "Have a nice day")
+    print("5 items saved to items.csv\n" "Have a nice day")
 
 """function loading_an_item()
     get item name, description and price to add
@@ -102,13 +103,14 @@ for line in reader:
     add item to csv file
         display the new item added"""
 
+
 def loading_items():
     add_item = []
     item = 'item_name', 'item_description', 'item_price'
     item_name = input("Item name: ")
     item_description = input("Description: ")
     item_price = input("Price per day: ")
-    print(item_name,(item_description), "$", item_price )
+    print(item_name, (item_description), "$", item_price)
     print(item)
     for item in add_item:
         add_item.append(item)
@@ -116,32 +118,21 @@ def loading_items():
         out_file.write(add_item)
         out_file.close()
 
-# append new item to file
+        # append new item to file
 
-    # def hiring_an_item():
-    #     print("All items on file(* indicates item is currently out\n)", Items)
-    #     hiring_choice = input("Enter the number of an item to hire: ")
-    #     print(hiring_choice, "hired for")
-    #     while hiring_choice == "H":
-    #         if hiring_choice == "0":
-    #             print("Rusty Bucket hired for $0.00")
-    #             print(Menu)
-    #         elif hiring_choice == "1":
-    #             print("AeroPress: Great coffee maker hired for $5")
-    #
-    #
-    #
-    #         print(Menu)
+        # def hiring_an_item():
+        #     print("All items on file(* indicates item is currently out\n)", Items)
+        #     hiring_choice = input("Enter the number of an item to hire: ")
+        #     print(hiring_choice, "hired for")
+        #     while hiring_choice == "H":
+        #         if hiring_choice == "0":
+        #             print("Rusty Bucket hired for $0.00")
+        #             print(Menu)
+        #         elif hiring_choice == "1":
+        #             print("AeroPress: Great coffee maker hired for $5")
+        #
+        #
+        #
+        # print(Menu)
 
-main(Menu)
-
-
-
-
-
-
-
-
-
-
-
+main()
