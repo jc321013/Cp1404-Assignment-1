@@ -94,23 +94,24 @@ def main():
 
 def loading_items():
     # empty list of items, function adds new items to that list
-
-
     add_item = []
     item_name = input("Item name: ")
     item_description = input("Description: ")
-    item_price = input("Price per day: ")
+    item_price = int(input("Price per day: "))
     item = item_name, item_description, item_price
-    print(item_name, (item_description), "hired for", "$", item_price)
-    for char in add_item:
-        # adds item to add_item
+    if item == "":
+        print("You entered nothing, please reenter item")
+    else:
+        print(item_name, (item_description), "hired for", "$", item_price)
+    for item in add_item:
+        # adds item features to add_item
         add_item.append(item_name)
         add_item.append(item_description)
         add_item.append(item_price)
 
         # writes to file items.csv with the added item
     input_file = open("items.csv", "r", encoding='utf-8')
-    output_file = open("items.csv", "a")
+    output_file = open("items.csv", "w")
 
     for line_str in input_file:
         new_str = ''
@@ -126,7 +127,7 @@ def loading_items():
 
 
 def hiring_an_item():
-    # function loads items and allows user to choose available stock
+    # function loads items and allows user to choose available items
     print("All items on file(* indicates item is currently out)\n", Items)
     hiring_choice = input("Enter the number of an item to hire: ")
     while hiring_choice != "":
@@ -144,6 +145,8 @@ def hiring_an_item():
         print("Invalid item choice")
     print(Items)
     hiring_choice = input("Enter the number of an item to hire: ")
+
+
 
 
 main()
