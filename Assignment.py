@@ -81,6 +81,18 @@ def main():
             hiring_an_item()
         elif choice == "R":
             return_item = input("Number of an item to return: ")
+            input_file = open("items.csv", "r", encoding='utf-8')
+            output_file = open("items.csv", "a")
+            for line_str in input_file:
+                new_str = ''
+                line_str = line_str.strip()
+                for char in line_str:
+                    new_str = char + new_str
+                print(new_str, file=output_file)
+
+            print(return_item.format())
+            input_file.close()
+            output_file.close()
             print(return_item, "returned")
         elif choice == "A":
             loading_items()
@@ -111,7 +123,7 @@ def loading_items():
 
         # writes to file items.csv with the added item
     input_file = open("items.csv", "r", encoding='utf-8')
-    output_file = open("items.csv", "w")
+    output_file = open("items.csv", "a")
 
     for line_str in input_file:
         new_str = ''
