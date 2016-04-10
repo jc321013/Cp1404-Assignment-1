@@ -81,16 +81,6 @@ def main():
             hiring_an_item()
         elif choice == "R":
             return_item = input("Number of an item to return: ")
-            output_file = open("items.csv", "a")
-            for line_str in input_file:
-                new_str = ''
-                line_str = line_str.strip()
-                for char in line_str:
-                    new_str = char + new_str
-                print(new_str, file=output_file)
-
-            print(return_item.format())
-            output_file.close()
             print(return_item, "returned")
         elif choice == "A":
             loading_items()
