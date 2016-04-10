@@ -93,8 +93,9 @@ def main():
 
 
 def loading_items():
-    # empty list of items, function adds new items to that list
+    # Creates an error checking function for a value error
     try:
+        # empty list of items, function adds new items to that list
         add_item = []
         item_name = input("Item name: ")
         item_description = input("Description: ")
