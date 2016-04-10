@@ -81,7 +81,6 @@ def main():
             hiring_an_item()
         elif choice == "R":
             return_item = input("Number of an item to return: ")
-            input_file = open("items.csv", "r", encoding='utf-8')
             output_file = open("items.csv", "a")
             for line_str in input_file:
                 new_str = ''
@@ -91,7 +90,6 @@ def main():
                 print(new_str, file=output_file)
 
             print(return_item.format())
-            input_file.close()
             output_file.close()
             print(return_item, "returned")
         elif choice == "A":
@@ -106,36 +104,36 @@ def main():
 
 def loading_items():
     # empty list of items, function adds new items to that list
-    add_item = []
-    item_name = input("Item name: ")
-    item_description = input("Description: ")
-    item_price = int(input("Price per day: "))
-    item = item_name, item_description, item_price
-    if item == "":
-        print("You entered nothing, please reenter item")
-    else:
-        print(item_name, (item_description), "hired for", "$", item_price)
-    for item in add_item:
-        # adds item features to add_item
-        add_item.append(item_name)
-        add_item.append(item_description)
-        add_item.append(item_price)
+    try:
+        add_item = []
+        item_name = input("Item name: ")
+        item_description = input("Description: ")
+        item_price = int(input("Price per day: "))
+        item = item_name, item_description, item_price
+        if item == "":
+            print("You entered nothing, please reenter item")
+        else:
+            print(item_name, (item_description), "hired for", "$", item_price)
+        for item in add_item:
+            # adds item features to add_item
+            add_item.append(item_name)
+            add_item.append(item_description)
+            add_item.append(item_price)
+    # writes to file items.csv with the added item
+        output_file = open("items.csv", "a")
 
-        # writes to file items.csv with the added item
-    input_file = open("items.csv", "r", encoding='utf-8')
-    output_file = open("items.csv", "a")
+        for line_str in output_file:
+            new_str = ''
+            line_str = line_str.strip()
+            for char in line_str:
+                new_str = char + new_str
+            print(new_str, file=output_file)
 
-    for line_str in input_file:
-        new_str = ''
-        line_str = line_str.strip()
-        for char in line_str:
-            new_str = char + new_str
-        print(new_str, file=output_file)
+            print('Item: {Item name}, {Item description}, {Item price}'.format(line_str, new_str))
 
-        print('Item: {Item name}, {Item description}, {Item price}'.format(line_str, new_str))
-
-    input_file.close()
-    output_file.close()
+        output_file.close()
+    except ValueError:
+        print("Invalid item price")
 
 
 def hiring_an_item():
@@ -155,29 +153,5 @@ def hiring_an_item():
         print("Guitar hired for $12.95")
     else:
         print("Invalid item choice")
-
-
-    #  choice = input("Choice: ").upper()
-    #  while choice != "Q":
-    #     if choice == "L":
-    #         print("All items on file(* indicated item is currently out):")
-    #         print(Items)
-    #     elif choice == "H":
-    #         hiring_an_item()
-    #     elif choice == "R":
-    #         return_item = input("Number of an item to return: ")
-    #         print(return_item, "returned")
-    #     elif choice == "A":
-    #         loading_items()
-    #     else:
-    #         print("Invalid menu choice.")
-    #     print(Menu)
-    #     choice = input("Enter your choice: ").upper()
-    #
-    # print("5 items saved to items.csv\n" "Have a nice day")
-
-
-
-
 
 main()
