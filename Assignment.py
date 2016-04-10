@@ -129,22 +129,41 @@ def loading_items():
 def hiring_an_item():
     # function loads items and allows user to choose available items
     print("All items on file(* indicates item is currently out)\n", Items)
-    hiring_choice = input("Enter the number of an item to hire: ")
-    while hiring_choice != "":
-        if hiring_choice == "0":
-            print("Rusty Bucket hired for $0.00")
-        elif hiring_choice == "1":
-            print("Golf cart currently out of stock")
-        elif hiring_choice == "2":
-            print("Thermomix currently out of stock")
-        elif hiring_choice == "3":
-            print("AeroPress hired for $5")
-        elif hiring_choice == "4":
-            print("Guitar hired for $12.95")
+
+    choice = input("Enter the number of an item to hire: ")
+    if choice == "0":
+        print("Rusty Bucket hired for $0.00")
+    elif choice == "1":
+        print("Golf cart currently out of stock")
+    elif choice == "2":
+        print("Thermomix currently out of stock")
+    elif choice == "3":
+        print("AeroPress hired for $5")
+    elif choice == "4":
+        print("Guitar hired for $12.95")
     else:
         print("Invalid item choice")
-    print(Items)
-    hiring_choice = input("Enter the number of an item to hire: ")
+
+
+    #  choice = input("Choice: ").upper()
+    #  while choice != "Q":
+    #     if choice == "L":
+    #         print("All items on file(* indicated item is currently out):")
+    #         print(Items)
+    #     elif choice == "H":
+    #         hiring_an_item()
+    #     elif choice == "R":
+    #         return_item = input("Number of an item to return: ")
+    #         print(return_item, "returned")
+    #     elif choice == "A":
+    #         loading_items()
+    #     else:
+    #         print("Invalid menu choice.")
+    #     print(Menu)
+    #     choice = input("Enter your choice: ").upper()
+    #
+    # print("5 items saved to items.csv\n" "Have a nice day")
+
 
 
 
